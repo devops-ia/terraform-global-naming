@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.0 (2024-08-06)
+
+
+### Features
+
+* Upload module ([41eee7c](https://github.com/devops-ia/terraform-global-naming/commit/41eee7cfa8cb1aa2a5ff69f53bbc894abbec806e))
+
 ## [1.1.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.0.0...v1.1.0) (2024-08-06)
 
 
