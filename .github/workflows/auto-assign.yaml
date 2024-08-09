@@ -1,19 +1,14 @@
 name: Auto assign
+
 on:
   issues:
     types: [opened]
   pull_request:
-    types: [opened]
-jobs:
-  run:
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-      pull-requests: write
+    types: [opened, edited, synchronize, reopened]
 
-    steps:
-      - name: "Auto-assign issue"
-        uses: pozil/auto-assign-issue@v2
-        with:
-          repo-token: ${{ secrets.GITHB_PERSONAL_TOKEN }}
-          teams: devops-ia
+jobs:
+  auto-assign:
+    uses: devops-ia/.github/.github/workflows/auto-assign.yaml@main
+    with:
+      teams: devops-ia
+    secrets: inherit

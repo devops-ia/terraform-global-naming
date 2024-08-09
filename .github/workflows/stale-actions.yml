@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/stale@v6
         with:
-          repo-token: ${{ secrets.GITHB_PERSONAL_TOKEN }}
+          repo-token: ${{ secrets.PAT_GITHUB }}
           # Staling issues and PR's
           days-before-stale: 30
           stale-issue-label: stale
