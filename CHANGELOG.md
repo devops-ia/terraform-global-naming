@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.1.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.0.0...v1.1.0) (2024-08-09)
+
+
+### Features
+
+* Change secrets references and add dependabot ([#2](https://github.com/devops-ia/terraform-global-naming/issues/2)) ([3b58179](https://github.com/devops-ia/terraform-global-naming/commit/3b58179f3ed018b512653dd2bc19c1fbf5b18ea0))
+
 ## 1.0.0 (2024-08-06)
 
 
