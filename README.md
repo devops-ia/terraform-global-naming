@@ -7,7 +7,6 @@ This module helps you to keep consistency on your resources names for Terraform 
 ```hcl
 module "aws_bucket_name" {
   source = "devops-ia/naming/global"
-  version = "1.0.0"
 
   prefix      = ""
   project     = "myproject"

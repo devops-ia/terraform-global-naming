@@ -4,7 +4,6 @@
 # top-most EditorConfig file
 root = true
 
-# Unix-style newlines with a newline ending every file
 [*]
 charset = utf-8
 end_of_line = lf
@@ -15,16 +14,18 @@ max_line_length = 80
 trim_trailing_whitespace = true
 
 [*.{tf,tfvars}]
+indent_style = tab
 indent_size = 2
+tab_width = 2
+
+[*.py]
 indent_style = space
+indent_size = 4
 
 [*.md]
 max_line_length = 0
 trim_trailing_whitespace = false
 
-[Makefile]
-tab_width = 2
-indent_style = tab
-
-[COMMIT_EDITMSG]
-max_line_length = 0
+[*.{yaml,json}]
+indent_style = space
+indent_size = 2
