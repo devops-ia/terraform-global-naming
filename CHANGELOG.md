@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.1.0...v1.2.0) (2025-12-01)
+
+
+### Features
+
+* Upload editorconfig ([#9](https://github.com/devops-ia/terraform-global-naming/issues/9)) ([9d981ac](https://github.com/devops-ia/terraform-global-naming/commit/9d981acfcd98ce220c2ac393950dd1291ce3b708))
+
 ## [1.1.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.0.0...v1.1.0) (2024-08-09)
 
 
