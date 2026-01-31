@@ -7,8 +7,8 @@ on:
       - master
 
 env:
-  TERRAFORM_DOCS_VERSION: v0.16.0
-  TFLINT_VERSION: v0.44.1
+  TERRAFORM_DOCS_VERSION: v0.21.0
+  TFLINT_VERSION: v0.60.0
 
 jobs:
   collectInputs:
@@ -18,11 +18,13 @@ jobs:
       directories: ${{ steps.dirs.outputs.directories }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          fetch-depth: 0
 
       - name: Get root directories
         id: dirs
-        uses: clowdhaus/terraform-composite-actions/directories@v1.14.0
+        uses: clowdhaus/terraform-composite-actions/directories@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
 
   preCommitMinVersions:
     name: Min TF pre-commit
@@ -33,18 +35,18 @@ jobs:
         directory: ${{ fromJson(needs.collectInputs.outputs.directories) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
       - name: Terraform min/max versions
         id: minMax
-        uses: clowdhaus/terraform-min-max@v2.1.0
+        uses: clowdhaus/terraform-min-max@a86951cbe89f4d15caec805f36aa1dd68863ae32 # v2.1.0
         with:
           directory: ${{ matrix.directory }}
 
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
         # Run only validate pre-commit check on min version supported
         if: ${{ matrix.directory !=  '.' }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.14.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
@@ -53,7 +55,7 @@ jobs:
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.minVersion }}
         # Run only validate pre-commit check on min version supported
         if: ${{ matrix.directory ==  '.' }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.14.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.minVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}
@@ -65,17 +67,17 @@ jobs:
     needs: collectInputs
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{github.event.pull_request.head.repo.full_name}}
 
       - name: Terraform min/max versions
         id: minMax
-        uses: clowdhaus/terraform-min-max@v2.1.0
+        uses: clowdhaus/terraform-min-max@a86951cbe89f4d15caec805f36aa1dd68863ae32 # v2.1.0
 
       - name: Pre-commit Terraform ${{ steps.minMax.outputs.maxVersion }}
-        uses: clowdhaus/terraform-composite-actions/pre-commit@v1.14.0
+        uses: clowdhaus/terraform-composite-actions/pre-commit@462243b714d762cbcac6732098e9fdb4ab236cb7 # v1.14.0
         with:
           terraform-version: ${{ steps.minMax.outputs.maxVersion }}
           tflint-version: ${{ env.TFLINT_VERSION }}

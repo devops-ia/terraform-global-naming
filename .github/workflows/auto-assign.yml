@@ -8,7 +8,8 @@ on:
 
 jobs:
   auto-assign:
-    uses: devops-ia/.github/.github/workflows/auto-assign.yaml@main
+    uses: devops-ia/.github/.github/workflows/auto-assign.yaml@bcf48ba70f79f6f494b1831d1a5b992e474091d8
     with:
       teams: devops-ia
-    secrets: inherit
+    secrets:
+      PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
