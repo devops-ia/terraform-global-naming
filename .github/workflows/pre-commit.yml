@@ -1,4 +1,6 @@
 name: Pre-Commit
+permissions:
+  contents: read
 
 on:
   pull_request:
