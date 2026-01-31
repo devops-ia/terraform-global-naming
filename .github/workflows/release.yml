@@ -11,6 +11,9 @@ on:
       - "**/*.tf"
       - ".github/workflows/release.yml"
 
+permissions:
+  contents: write
+
 jobs:
   release:
     name: Release
