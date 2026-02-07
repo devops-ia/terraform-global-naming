@@ -1,0 +1,36 @@
+name: Terraform Test
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "*.tf"
+      - "tests/**"
+      - ".github/workflows/terraform-test.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Terraform Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Terraform min/max versions
+        id: minMax
+        uses: clowdhaus/terraform-min-max@a86951cbe89f4d15caec805f36aa1dd68863ae32 # v2.1.0
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@b9cd54a3c349d3f38e8881555d616ced269862dd # v3.2.0
+        with:
+          terraform_version: ${{ steps.minMax.outputs.maxVersion }}
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Test
+        run: terraform test
