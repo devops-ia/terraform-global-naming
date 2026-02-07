@@ -1,15 +1,11 @@
 module "random_name" {
-  source = "../../../terraform-global-naming/"
+  source = "../../"
 
   prefix      = "ste"
   project     = "aso"
   environment = "env"
   resource    = "random"
-  location    = ""
   description = "security"
-  suffix      = ""
-  delimiter   = "-"
-  limits      = 25
 }
 
 resource "null_resource" "cluster" {

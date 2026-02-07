@@ -1,4 +1,14 @@
 output "name" {
-  description = "This output provides the generated resource name based on the specified variables. The name is constructed by concatenating the provided prefix, project, environment, resource type, location, description, and suffix with the specified delimiter. Empty or null values are omitted, ensuring that there are no extraneous delimiters in the resulting name. This output can be used to reference the constructed resource name in other parts of your Terraform configuration or in other dependent modules."
+  description = "The constructed resource name."
   value       = local.resource_name
+
+  precondition {
+    condition     = length(local.resource_name) <= var.limits
+    error_message = "Resource name '${local.resource_name}' is ${length(local.resource_name)} characters, exceeding the limit of ${var.limits}."
+  }
+}
+
+output "total_length" {
+  description = "Total character length of the constructed resource name."
+  value       = length(local.resource_name)
 }
