@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.2.0...v1.3.0) (2026-02-07)
+
+### Features
+
+* Add tests and improve code ([#33](https://github.com/devops-ia/terraform-global-naming/issues/33)) ([80744bf](https://github.com/devops-ia/terraform-global-naming/commit/80744bf9e9ea72e31097b340f383a5d4954848c1))
+
 ## [1.2.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.1.0...v1.2.0) (2025-12-01)
 
 
