@@ -1,4 +1,4 @@
-name: Auto assign
+name: Auto-assign Issue
 
 on:
   issues:
@@ -10,7 +10,9 @@ jobs:
   auto-assign:
     permissions:
       contents: read
-    uses: devops-ia/.github/.github/workflows/auto-assign.yaml@bcf48ba70f79f6f494b1831d1a5b992e474091d8
+      issues: write
+      pull-requests: write
+    uses: devops-ia/.github/.github/workflows/github-auto-assign.yml@main
     with:
       teams: devops-ia
     secrets:

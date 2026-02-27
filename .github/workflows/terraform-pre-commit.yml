@@ -1,0 +1,13 @@
+name: Pre-Commit (Terraform)
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  pre-commit:
+    permissions:
+      contents: read
+    uses: devops-ia/.github/.github/workflows/terraform-pre-commit.yml@main

@@ -1,0 +1,15 @@
+name: Lock Threads
+
+on:
+  schedule:
+    - cron: "50 1 * * *"
+
+jobs:
+  lock:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    uses: devops-ia/.github/.github/workflows/github-lock.yml@main
+    secrets:
+      PAT_GITHUB: ${{ secrets.PAT_GITHUB }}

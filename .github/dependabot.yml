@@ -8,6 +8,18 @@ updates:
     labels:
       - enhancement
       - dependency-management
+    assignees:
+      - devops-ia/devops-ia
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: chore
+      include: scope
+    rebase-strategy: auto
+    pull-request-branch-name:
+      separator: "-"
   - package-ecosystem: terraform
     directory: "/"
     schedule:
@@ -16,3 +28,15 @@ updates:
     labels:
       - enhancement
       - dependency-management
+    assignees:
+      - devops-ia/devops-ia
+    groups:
+      terraform:
+        patterns:
+          - "*"
+    commit-message:
+      prefix: chore
+      include: scope
+    rebase-strategy: auto
+    pull-request-branch-name:
+      separator: "-"

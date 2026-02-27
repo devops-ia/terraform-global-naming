@@ -1,0 +1,17 @@
+name: Validate PR Title
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  validate:
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: devops-ia/.github/.github/workflows/github-pr-title.yml@main
+    secrets:
+      PAT_GITHUB: ${{ secrets.PAT_GITHUB }}

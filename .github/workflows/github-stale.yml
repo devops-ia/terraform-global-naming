@@ -1,0 +1,15 @@
+name: Mark or Close Stale Issues and PRs
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  stale:
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    uses: devops-ia/.github/.github/workflows/github-stale.yml@main
+    secrets:
+      PAT_GITHUB: ${{ secrets.PAT_GITHUB }}

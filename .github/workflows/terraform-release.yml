@@ -1,0 +1,22 @@
+name: Release Terraform Module
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.tpl"
+      - "**/*.py"
+      - "**/*.tf"
+      - ".github/workflows/release.yml"
+
+jobs:
+  release:
+    permissions:
+      contents: write
+      packages: write
+      id-token: write
+    uses: devops-ia/.github/.github/workflows/terraform-release.yml@main
+    secrets:
+      PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
