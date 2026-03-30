@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.3.0...v1.4.0) (2026-03-30)
+
+### Features
+
+* allow optional resource ([55520c4](https://github.com/devops-ia/terraform-global-naming/commit/55520c44d559c43fef92f3ac4b83f67297d129e6))
+
 ## [1.3.0](https://github.com/devops-ia/terraform-global-naming/compare/v1.2.0...v1.3.0) (2026-02-07)
 
 ### Features
