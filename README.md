@@ -67,7 +67,7 @@ No resources.
 | <a name="input_location"></a> [location](#input\_location) | Optional location or region appended to the resource name. | `string` | `""` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | Optional prefix prepended to the resource name. | `string` | `""` | no |
 | <a name="input_project"></a> [project](#input\_project) | Project name used as a component of the resource name. | `string` | n/a | yes |
-| <a name="input_resource"></a> [resource](#input\_resource) | Resource type identifier (e.g. vm, s3, rg). | `string` | n/a | yes |
+| <a name="input_resource"></a> [resource](#input\_resource) | Optional resource type identifier (e.g. vm, s3, rg). | `string` | `""` | no |
 | <a name="input_suffix"></a> [suffix](#input\_suffix) | Optional suffix appended at the end of the resource name. | `string` | `""` | no |
 
 ## Outputs

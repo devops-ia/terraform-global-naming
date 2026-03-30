@@ -4,17 +4,16 @@ run "mandatory_fields_only" {
   variables {
     project     = "myproject"
     environment = "dev"
-    resource    = "s3"
   }
 
   assert {
-    condition     = output.name == "myproject-dev-s3"
-    error_message = "Expected 'myproject-dev-s3', got '${output.name}'"
+    condition     = output.name == "myproject-dev"
+    error_message = "Expected 'myproject-dev', got '${output.name}'"
   }
 
   assert {
-    condition     = output.total_length == 16
-    error_message = "Expected length 16, got ${output.total_length}"
+    condition     = output.total_length == 12
+    error_message = "Expected length 12, got ${output.total_length}"
   }
 }
 
@@ -152,13 +151,16 @@ run "invalid_empty_environment" {
   }
 }
 
-run "invalid_empty_resource" {
-  command         = plan
-  expect_failures = [var.resource]
+run "without_resource" {
+  command = plan
 
   variables {
     project     = "proj"
     environment = "dev"
-    resource    = ""
+  }
+
+  assert {
+    condition     = output.name == "proj-dev"
+    error_message = "Expected 'proj-dev', got '${output.name}'"
   }
 }

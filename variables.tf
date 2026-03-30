@@ -28,14 +28,10 @@ variable "environment" {
 }
 
 variable "resource" {
-  description = "Resource type identifier (e.g. vm, s3, rg)."
+  description = "Optional resource type identifier (e.g. vm, s3, rg)."
   type        = string
+  default     = ""
   nullable    = false
-
-  validation {
-    condition     = length(var.resource) > 0
-    error_message = "The resource must not be empty."
-  }
 }
 
 variable "location" {

@@ -4,7 +4,6 @@ module "random_name" {
   prefix      = "ste"
   project     = "aso"
   environment = "env"
-  resource    = "random"
   description = "security"
 }
 
